@@ -5,6 +5,7 @@ class PinPut extends StatefulWidget {
   PinPut({
     @required this.onSubmit,
     @required this.fieldsCount,
+    this.onTextChanged,
     this.onClear,
     this.spaceBetween = 10.0,
     this.textStyle = const TextStyle(fontSize: 30),
@@ -27,6 +28,7 @@ class PinPut extends StatefulWidget {
   }) : assert(fieldsCount > 0);
 
   final Function onSubmit;
+  final Function onTextChanged;
   final Function onClear;
   final int fieldsCount;
   final TextStyle textStyle;

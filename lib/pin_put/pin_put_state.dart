@@ -13,6 +13,7 @@ class PinPutState extends State<PinPut> with WidgetsBindingObserver {
           context: context,
           fieldsCount: widget.fieldsCount,
           onSubmit: (String p) => widget.onSubmit(p),
+          onTextChanged: (String p) => widget.onTextChanged(p),
           onClear: (String cl) => widget.onClear(cl),
         );
     _actionButton = _buildActionButton();

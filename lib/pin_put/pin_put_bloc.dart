@@ -6,6 +6,7 @@ class PinPutBloc {
   final BuildContext context;
   final int fieldsCount;
   final Function onSubmit;
+  final Function onTextChanged;
   final Function onClear;
   List<String> _pin;
   List<FocusNode> nodes;
@@ -21,7 +22,12 @@ class PinPutBloc {
 
   Stream<ActionButtonState> get buttonState => _buttonStateStreamCtrl.stream;
 
-  PinPutBloc({this.context, this.fieldsCount, this.onSubmit, this.onClear}) {
+  PinPutBloc(
+      {this.context,
+      this.fieldsCount,
+      this.onSubmit,
+      this.onTextChanged,
+      this.onClear}) {
     _init();
   }
 
@@ -45,6 +51,8 @@ class PinPutBloc {
 
   void _onTextChanged(FieldModel m) {
     _pin[m.index] = m.text;
+    String pin = _pin.join();
+    onTextChanged(pin);
     _focusNext(m.text, m.index);
     _setButtonState();
   }
